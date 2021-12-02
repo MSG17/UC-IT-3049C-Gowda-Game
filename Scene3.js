@@ -9,10 +9,27 @@ class Scene3 extends Phaser.Scene{
       //this.player.setScale(4);
       this.enemy = this.add.image(400, 175, 'enemy');
       //this.enemy.setscale(0.5);
+      this.add.text(20, 20, 'Lives: DEMO', { font: "25px Arial", fill: '#0f0' })
+      this.add.text(620, 20, 'Score: DEMO', { font: "25px Arial", fill: '#0f0' })
+      this.enemy.flipY = true;
+      this.cursors = this.input.keyboard.addKeys('LEFT,RIGHT');
     }
 
     update() {
 
+        
+        //player movement
+        if (this.cursors.LEFT.isDown) {
+            this.player.x -= 5;
+        }
+        else if (this.cursors.RIGHT.isDown) {
+            this.player.x += 5;
+        }
+        else {
+            
+        }
+
+        //movement function from Zuno's tutorial
         // 1.1 call a function to move the ships vertically
         this.moveShip(this.enemy, 1);
     
